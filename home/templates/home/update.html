@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="update">
+  <div class="update_prompt">
+    <p>
+      Are you sure you want to Update?
+    </p>
+  </div>
+  <div class="prompt_options">
+    <div class="back">
+      <a href={% url 'trips' %}>Back</a>
+    </div>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input id="update_info_btn" type="submit" value="Update">
+    </form>
+  </div>
+</div>
+{% endblock content %}

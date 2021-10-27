@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div>
+    <h2 style="text-align: center;">
+        Todays Trips
+    </h2>
+    <div class="trips">
+      <table id="trips_table">
+        <tr>
+          <th>Date</th>
+          <th>Driver</th>
+          <th>Vehicle</th>
+          <th>Destination</th>
+          <th>Purpose</th>
+          <th>Passengers</th>
+          <th>Time Out</th>
+          <th>Time In</th>
+        </tr>
+        {% for car in car_reg %}
+        <tr>
+          <td>{{trip.date_created|date:"M d"}}</td>
+          <td>{{trip.driver}}</td>
+          <td>{{trip.car_reg_number}}</td>
+          <td>{{trip.destination}}</td>
+          <td>{{trip.purpose}}</td>
+          <td>{{trip.passengers}}</td>
+          <td>{{trip.time_out|date:"h:iA"}}</td>
+          <td>{{trip.time_in|date:"h:iA"}}</td>
+          <td><a id="update" href={% url 'update' trip.id %}>Update</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+</div>
+{% endblock content %}

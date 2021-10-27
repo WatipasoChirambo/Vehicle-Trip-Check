@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div>
+    <h2 style="text-align: center;">
+        All Weeks Trips
+    </h2>
+    <div class="trips">
+        <table id="trips_table">
+            <tr>
+              <th>Name</th>
+              <th>Driver</th>
+              <th>Vehicle</th>
+              <th>Destination</th>
+              <th>Purpose</th>
+              <th>Passengers</th>
+              <th>Time Out</th>
+              <th>Time In</th>
+            </tr>
+            {% for trip in last_weeks_trips %}
+            <tr>
+              <td>{{trip.driver}}</td>
+              <td>{{trip.time_in|date:"h:iA"}}</td>
+              <td><a id="update" href={% url 'update' trip.id %}>Update</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h2 style="text-align: center;">
+        All
+    </h2>
+    <div>
+      {{ form.as_p }}
+    </div>
+    <div class="trips">
+        <div class="trip">
+            <div>
+              <table id="trips_table">
+                <tr>
+                  <th>Name</th>
+                  <th>Time In</th>
+                </tr>
+                {% for trip in trips %}
+                <tr>
+                  <td>{{trip.driver}}</td>
+                  <td>{{trip.time_in|date:"h:iA"}}</td>
+                  <td><a id="update" href="{% url 'update' trip.id %}">Update</a></td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+        </div>
+        
+    </div>
+    <div class="pagination">
+      {% if trips.has_previous %}
+        <a href="?page={{ trips.previous_page_number }}">Previous Page</a>
+      {% endif %}
+      {% if trips.has_next %}
+        <a href="?page={{ trips.next_page_number }}">Next Page</a>
+      {% endif %}
+    </div>
+</div>
+{% endblock content %}

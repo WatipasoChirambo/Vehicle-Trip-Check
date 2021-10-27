@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+<div>
+  <form action="{% url 'history' %}" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <div class="sub_btn">
+      <button type="submit" value="Submit">Submit</button>
+    </div>
+  </form>
+</div>
+<div class="trips">
+  <div class="trip">
+      <div>
+        <table id="trips_table">
+          <tr>
+            <th>Name</th>
+            <th>Time In</th>
+          </tr>
+          {% for trip in trips %}
+          <tr>
+            <td>{{trip.driver}}</td>
+            <td>{{trip.time_in|date:"h:iA"}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+  </div>
+</div>
+  {% endblock content %}

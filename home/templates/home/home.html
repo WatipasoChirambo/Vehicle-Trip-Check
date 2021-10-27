@@ -1,0 +1,40 @@
+{% block content %} 
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+</head>
+<div class="middle">
+<div class="logo">
+    <a style="text-align:center;">
+      <img src={% static 'images/logo.png' %}/>
+    </a>
+    <h2 style="text-align:center; color:black;">{{user.username}}</h2>
+    <h3 style="text-align:center; color:grey;">
+      {{today}}
+    </h3>
+    <div class="trips_boy">
+      <a href={% url 'trips' %}>Members</a>
+    </div>
+</div>
+<div>
+  <div class="trip-header">
+    <h1 style="text-align:center; color:black;">Ritz Attorneys Check In</h1>
+  </div>
+  <form action="{% url 'index' %}" method="POST">
+  {% for msg in messages %}
+      <p style="text-align:center;">{{msg}}</p>
+  {% endfor %}
+  {% csrf_token %}
+    <div class="middle_info">
+      <div class="info">
+        <p>
+          <label style="color: #D4A545;">first Name</label>
+          {{form.driver}}
+        </p>
+    </div>
+    <div class="sub_btn">
+      <button type="submit" value="Submit">Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}

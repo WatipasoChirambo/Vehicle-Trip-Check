@@ -1,0 +1,32 @@
+.login-container{
+    display: grid;
+    text-align: center;
+}
+.heading{
+    padding-top: 10%;
+}
+.login-info{
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(min(10rem, 100%), 1fr 1fr 1fr));
+}
+h2{
+    color: #D4A545;
+}
+.login_btn{
+    text-align: center;
+}
+#login{
+    margin-left: 5%;
+    text-align: center;
+    background-color: #D4A545;
+    color: white;
+    border: 1px solid #D4A545;
+    height: 30px;
+    width: 50px;
+}
+#login:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #D4A545;
+    border: 1px solid #D4A545;
+}

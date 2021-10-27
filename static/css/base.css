@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Roboto Slab;
+    height: 100vh;
+    min-height: 100%;
+}
+/* Create four equal columns that sits next to each other */
+
+/* Responsive layout - makes a two column-layout instead of four columns */

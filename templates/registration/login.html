@@ -1,0 +1,44 @@
+{% block content %} {% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block title %}
+  <title>Ink Dripped</title>
+  {% endblock title %}
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+    integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+</head>
+<body>
+  <div class="login-container">
+    <div>
+      <div class="logo">
+        <a>
+            <img src={% static 'images/logo.png' %}/>
+        </a>
+      </div>
+      <h2>Ritz Attorneys At Law</h2>
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="login-info">
+          <div>
+            <h4>{{ form.username.label_tag }}{{ form.username }}</h4>
+          </div>
+          <div>
+            <h4>{{ form.password.label_tag }}{{ form.password }}</h4>
+          </div>
+          <div class="login_btn">
+            <input id="login" type="submit" value="login" />
+          <input type="hidden" name="next" value="{{ next }}" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+{% endblock content %}

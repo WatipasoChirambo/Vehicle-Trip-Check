@@ -1,0 +1,60 @@
+.middle{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+}
+.logo{
+    text-align: center;
+}
+.logo>h2{
+    color: #D4A545;
+}
+h3{
+    color: #D4A545; 
+}
+body{
+    padding: 2%;
+}
+.trip-header{
+    text-align: center;
+}
+.trips_boy>a{
+    text-decoration: none;
+    color: #D4A545;
+}
+.trips_boy>a:hover{
+    text-decoration: underline;
+    color: #D4A545;
+
+}
+h1{
+    color: #D4A545;
+}
+.middle_info{
+    text-align: center;
+}
+.sub_btn{
+    margin-top: 2%;
+    text-align: center;
+}
+button{
+    text-align: center;
+    border: 1px solid #D4A545;
+    background-color: #D4A545;
+    height: 50px;
+    width: 70px;
+    color: white;
+}
+button:hover{
+    text-align: center;
+    color: #D4A545;
+    background-color: white;
+    border: 1px solid #D4A545;
+}
+.info_right{
+    text-align: justify;
+}
+label{
+    color: #D4A545;
+    display: block;
+    margin-bottom: .2em;
+}
