@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-m2$fgge)aad(cvr75x%r*m2n&tnn22^h)4&=tz*trdoit4j=7f
 SESSION_SAVE_EVERY_REQUEST = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
