@@ -25,6 +25,7 @@ from .forms import *
 from datetime import datetime,date
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 # Create your views here.
 
 def register(response):
@@ -67,6 +68,7 @@ def trips(request):
         car_reg = Trip.objects.filter(Q(car_reg_number__icontains=search_trip)|Q(driver__icontains=search_trip))
     else:
         car_reg = None
+    all_users = get_user_model().objects.all()
     trips = Trip.objects.all()
     pages = Paginator(trips, 10)
     page = request.GET.get('page', 1)
@@ -77,7 +79,8 @@ def trips(request):
     context = {
         "trips": page,
         'car_reg':car_reg,
-        "today":today
+        "today":today,
+        "guys":all_users
     }
     return render(request, 'home/trips.html', context)
 
